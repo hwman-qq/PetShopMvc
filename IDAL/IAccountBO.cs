@@ -9,7 +9,7 @@ namespace PetShop.IDAL
 	/// <summary>
 	/// Inteface for the Account DAL
 	/// </summary>
-	public interface IAccount
+	public interface IAccountBO
 	{
 		/// <summary>
 		/// Authenticate a user

@@ -8,7 +8,7 @@ using PetShop.IDAL;
 
 namespace PetShop.SQLServerDAL {
 
-	public class Order : IOrder{
+	public class Order : IOrderBO{
 
 		//Static constants
 		private const string SQL_INSERT_ORDER = "Declare @ID int; Declare @ERR int; INSERT INTO Orders VALUES(@UserId, @Date, @ShipAddress1, @ShipAddress2, @ShipCity, @ShipState, @ShipZip, @ShipCountry, @BillAddress1, @BillAddress2, @BillCity, @BillState, @BillZip, @BillCountry, 'UPS', @Total, @BillFirstName, @BillLastName, @ShipFirstName, @ShipLastName, @CardNumber, @CardExpiration, @CardType, 'US_en'); SELECT @ID=@@IDENTITY; INSERT INTO OrderStatus VALUES(@ID, @ID, GetDate(), 'P'); SELECT @ERR=@@ERROR;";

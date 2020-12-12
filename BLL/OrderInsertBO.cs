@@ -22,7 +22,7 @@ namespace PetShop.BLL {
 	public class OrderInsertBO : ServicedComponent {
 
         // Get an instance of the Order DAL using the DALFactory
-        public IOrder dal = DALFactory.getOrderDAL();
+        public IOrderBO dal = DALFactory.getOrderDAL();
 
         // These variables are used to demonstrate the rollback characterisitic 
 		// of distributed transactions and would not form part of a production application

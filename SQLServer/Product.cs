@@ -8,7 +8,7 @@ using PetShop.IDAL;
 
 namespace PetShop.SQLServerDAL {
 
-	public class Product : IProduct{
+	public class Product : IProductBO{
 
 		//Static constants
 		private const string SQL_SELECT_PRODUCTS = "SELECT ProductId, Name, Descn FROM Product";

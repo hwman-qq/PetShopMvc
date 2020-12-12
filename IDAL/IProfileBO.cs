@@ -5,7 +5,7 @@ namespace PetShop.IDAL{
 	/// <summary>
 	/// Interface to the Profile DAL
 	/// </summary>
-	public interface IProfile{
+	public interface IProfileBO{
 
 		/// <summary>
 		/// Return the location of the banner image given a favourite category

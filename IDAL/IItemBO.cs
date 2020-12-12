@@ -10,7 +10,7 @@ namespace PetShop.IDAL{
 	/// <summary>
 	/// Interface to the Item DAL
 	/// </summary>
-	public interface IItem{
+	public interface IItemBO{
 		
 		/// <summary>
 		/// Search items by productId

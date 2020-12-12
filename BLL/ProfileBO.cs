@@ -12,7 +12,7 @@ namespace PetShop.BLL{
 	public class ProfileBO{
 
         // Get an instance of the Profile DAL using the DALFactory
-        public IProfile dal = DALFactory.getProfileDAL();
+        public IProfileBO dal = DALFactory.getProfileDAL();
 
         /// <summary>
 		/// A method to get the banner location from the 

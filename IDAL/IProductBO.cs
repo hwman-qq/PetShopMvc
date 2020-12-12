@@ -6,7 +6,7 @@ namespace PetShop.IDAL{
 	/// <summary>
 	/// Interface for the Product DAL
 	/// </summary>
-	public interface IProduct{
+	public interface IProductBO{
 	
 		/// <summary>
 		/// Method to search products by category name

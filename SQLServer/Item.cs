@@ -8,7 +8,7 @@ using PetShop.IDAL;
 
 namespace PetShop.SQLServerDAL {
 
-	public class Item : IItem{
+	public class Item : IItemBO{
 
 		// Static constants
 		private const string SQL_SELECT_ITEM = "SELECT Item.ItemId, Item.Attr1, Inventory.Qty, Item.ListPrice, Product.Name, Product.Descn FROM Item INNER JOIN Inventory ON Item.ItemId = Inventory.ItemId INNER JOIN Product ON Item.ProductId = Product.ProductId WHERE Item.ItemId = @ItemId";

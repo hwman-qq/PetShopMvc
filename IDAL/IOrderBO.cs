@@ -9,7 +9,7 @@ namespace PetShop.IDAL{
 	/// <summary>
 	/// Interface for the Order DAL
 	/// </summary>
-	public interface IOrder {
+	public interface IOrderBO {
 
 		/// <summary>
 		/// Method to insert an order header

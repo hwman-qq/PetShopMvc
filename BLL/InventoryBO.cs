@@ -13,7 +13,7 @@ namespace PetShop.BLL{
 	public class InventoryBO{
 
         // Get an instance of the Inventory DAL using the DALFactory
-        public IInventory dal = DALFactory.getInventoryDAL();
+        public IInventoryBO dal = DALFactory.getInventoryDAL();
 
         /// <summary>
 		/// A method to get the current quanity in stock for an individual item

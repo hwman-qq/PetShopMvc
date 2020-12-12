@@ -112,22 +112,22 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IAccount.cs">
+    <Compile Include="IAccountBO.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IInventory.cs">
+    <Compile Include="IInventoryBO.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IItem.cs">
+    <Compile Include="IItemBO.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IOrder.cs">
+    <Compile Include="IOrderBO.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IProduct.cs">
+    <Compile Include="IProductBO.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IProfile.cs">
+    <Compile Include="IProfileBO.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
