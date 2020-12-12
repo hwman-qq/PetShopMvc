@@ -92,12 +92,6 @@ namespace PetShop.Model
                 .Property(e => e.Descn)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Category>()
-                .HasMany(e => e.Products)
-                .WithRequired(e => e.Category1)
-                .HasForeignKey(e => e.Category)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Inventory>()
                 .Property(e => e.ItemId)
                 .IsUnicode(false);
@@ -157,11 +151,6 @@ namespace PetShop.Model
             modelBuilder.Entity<Product>()
                 .Property(e => e.Descn)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<Product>()
-                .HasMany(e => e.Items)
-                .WithRequired(e => e.Product)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Profile>()
                 .Property(e => e.UserId)

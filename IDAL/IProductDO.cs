@@ -1,5 +1,7 @@
+using PetShop.Model;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace PetShop.IDAL{
 	
@@ -13,7 +15,7 @@ namespace PetShop.IDAL{
 		/// </summary>
 		/// <param name="category">Name of the category to search by</param>
 		/// <returns>Interface to an arraylist of search results</returns>
-		IList GetProductsByCategory(string category);
+		IList<ProductInfo> GetProductsByCategory(string category);
 
 
 		/// <summary>
@@ -21,6 +23,6 @@ namespace PetShop.IDAL{
 		/// </summary>
 		/// <param name="keywords">An array of keywords to search by</param>
 		/// <returns>Interface to an arraylist of search results</returns>
-		IList GetProductsBySearch(string[] keywords);
+		IList<ProductInfo> GetProductsBySearch(string[] keywords);
 	}
 }

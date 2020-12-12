@@ -7,6 +7,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Collections;
 using System.Web.Caching;
+using System.Collections.Generic;
 
 namespace PetShop.Web{
 
@@ -144,7 +145,7 @@ namespace PetShop.Web{
 			}else{
 				//If there is nothing in viewstate, then fetch the favourites from the middle tier
 				ProductBO product = new ProductBO();
-				IList productsByCategory = product.GetProductsByCategory((string)ViewState[KEY_CATEGORY]);
+				IList<ProductInfo> productsByCategory = product.GetProductsByCategory((string)ViewState[KEY_CATEGORY]);
 				//Store the results in the cache
 				Cache.Add((string)ViewState[KEY_CATEGORY], productsByCategory, null, DateTime.Now.AddHours(12), Cache.NoSlidingExpiration , CacheItemPriority.High, null);
 				favorites.DataSource = productsByCategory;

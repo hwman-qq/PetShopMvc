@@ -74,7 +74,7 @@ namespace Test
         [TestMethod()]
         public void TotalTest()
         {
-            Cart target = new Cart(); // TODO: 初始化为适当的值
+            CartBO target = new CartBO(); // TODO: 初始化为适当的值
             Decimal expected = new Decimal(); // TODO: 初始化为适当的值
             Decimal actual;
             target.Total = expected;
@@ -87,8 +87,8 @@ namespace Test
         [TestMethod()]
         public void ProductBLLTest()
         {
-            Product productBLL = new Product();
-            IList products = productBLL.GetProductsByCategory("BIRDS");
+            ProductBO productBLL = new ProductBO();
+            IList<ProductInfo> products = productBLL.GetProductsByCategory("BIRDS");
             foreach (ProductInfo x in products)
             {
                 Console.WriteLine("ID: {0}, Name: {1}", x.Id, x.Name);
@@ -99,7 +99,8 @@ namespace Test
         [TestMethod()]
         public void AccountBLLTest()
         {
-            Account accountBLL = new Account();
+            AccountBO accountBLL = new AccountBO();
+
             AccountInfo a1 = accountBLL.SignIn("ACID", "ACID"); //系统内置的账户
             Assert.IsNotNull(a1);
             AccountInfo a2 = accountBLL.SignIn("DotNet", "DotNet");

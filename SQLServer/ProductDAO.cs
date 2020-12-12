@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using PetShop.Model;
 using PetShop.IDAL;
+using System.Collections.Generic;
 
 namespace PetShop.SQLServerDAL {
 
@@ -25,9 +26,9 @@ namespace PetShop.SQLServerDAL {
 		/// </summary>
 		/// <param name="category">category name</param>
 		/// <returns></returns>
-		public IList GetProductsByCategory(string category) {
+		public IList<ProductInfo> GetProductsByCategory(string category) {
 
-			IList productsByCategory = new ArrayList();
+			IList<ProductInfo> productsByCategory = new List<ProductInfo>();
 
 			SqlParameter parm = new SqlParameter(PARM_CATEGORY, SqlDbType.Char, 10);
 			parm.Value = category;
@@ -49,9 +50,9 @@ namespace PetShop.SQLServerDAL {
 		/// </summary>
 		/// <param name="keywords">string array of keywords</param>
 		/// <returns></returns>
-		public IList GetProductsBySearch(string[] keywords) {
+		public IList<ProductInfo> GetProductsBySearch(string[] keywords) {
 			
-			IList productsBySearch = new ArrayList();
+			IList<ProductInfo> productsBySearch = new List<ProductInfo>();
 
 			int numKeywords = keywords.Length;
 

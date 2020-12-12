@@ -8,6 +8,8 @@ using System.Web.Caching;
 // PetShop specific imports
 using PetShop.BLL;
 using PetShop.Web.Controls;
+using System.Collections.Generic;
+using PetShop.Model;
 
 namespace PetShop.Web {
 	public class Category : Page {
@@ -33,7 +35,7 @@ namespace PetShop.Web {
 			}else{
 				// If the data is not cached, then create a new products object and request the data
 				ProductBO product = new ProductBO();
-				IList productsByCategory = product.GetProductsByCategory(categoryKey);
+				IList<ProductInfo> productsByCategory = product.GetProductsByCategory(categoryKey);
 				// Store the results of the call in the Cache and set the time out to 12 hours
 				Cache.Add(categoryKey, productsByCategory, null, DateTime.Now.AddHours(12), Cache.NoSlidingExpiration , CacheItemPriority.High, null);
 				products.DataSource = productsByCategory;

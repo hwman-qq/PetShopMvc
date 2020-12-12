@@ -20,9 +20,9 @@ namespace PetShop.SQLServerDAL {
 	public abstract class SQLHelper {
 		
 		//Database connection strings
-		public static readonly string CONN_STRING_NON_DTC = ConfigurationSettings.AppSettings["SQLConnString1"];
-		public static readonly string CONN_STRING_DTC_INV = ConfigurationSettings.AppSettings["SQLConnString2"];		
-		public static readonly string CONN_STRING_DTC_ORDERS = ConfigurationSettings.AppSettings["SQLConnString3"];
+		public static readonly string CONN_STRING_NON_DTC = ConfigurationSettings.AppSettings["PetShopDbContext"];
+		public static readonly string CONN_STRING_DTC_INV = ConfigurationSettings.AppSettings["PetShopDbContext"];		
+		public static readonly string CONN_STRING_DTC_ORDERS = ConfigurationSettings.AppSettings["PetShopOrdersDbContext"];
 
         //public static readonly string CONN_STRING_NON_DTC = ConnectionInfo.DecryptDBConnectionString(ConfigurationSettings.AppSettings["SQLConnString1"]);
         //public static readonly string CONN_STRING_DTC_INV = ConnectionInfo.DecryptDBConnectionString(ConfigurationSettings.AppSettings["SQLConnString2"]);

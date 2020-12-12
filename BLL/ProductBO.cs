@@ -5,6 +5,7 @@ using System.Collections;
 using PetShop.Model;
 //PetShop DAL interfaces
 using PetShop.IDAL;
+using System.Collections.Generic;
 
 namespace PetShop.BLL {
 
@@ -21,7 +22,7 @@ namespace PetShop.BLL {
 		/// </summary>
 		/// <param name="category">The category name to search by</param>
 		/// <returns>An interface to an arraylist of the search results</returns>
-		public IList GetProductsByCategory(string category) {
+		public IList<ProductInfo> GetProductsByCategory(string category) {
 
 			// Return null if the string is empty
 			if (category.Trim() == string.Empty) 
@@ -36,7 +37,7 @@ namespace PetShop.BLL {
 		/// </summary>
 		/// <param name="text">A list keywords delimited by a space</param>
 		/// <returns>An interface to an arraylist of the search results</returns>
-		public IList GetProductsBySearch(string text) {
+		public IList<ProductInfo> GetProductsBySearch(string text) {
 
 			// Return null if the string is empty
 			if (text.Trim() == string.Empty) 
