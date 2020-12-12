@@ -11,7 +11,7 @@ namespace PetShop.BLL {
 	/// <summary>
 	/// A business component to manage product items
 	/// </summary>
-	public class Item {
+	public class ItemBO {
 
         // Get an instance of the Item DAL using the DALFactory
         public IItem dal = DALFactory.getItemDAL();

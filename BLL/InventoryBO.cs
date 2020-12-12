@@ -10,7 +10,7 @@ namespace PetShop.BLL{
 	/// <summary>
 	/// A business component to manage the inventory management for an item
 	/// </summary>
-	public class Inventory{
+	public class InventoryBO{
 
         // Get an instance of the Inventory DAL using the DALFactory
         public IInventory dal = DALFactory.getInventoryDAL();

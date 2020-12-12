@@ -14,7 +14,7 @@ namespace PetShop.BLL {
 	/// The PetShop.Model.Account is used in most methods 
 	/// and is used to store serializable information about an account
 	/// </summary>
-	public class Account {
+	public class AccountBO {
 
         public IAccount dal = DALFactory.getAccountDAL();
 

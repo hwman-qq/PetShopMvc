@@ -46,7 +46,7 @@ namespace PetShop.Web.Controls{
 						bannerPath = ( (string)Cache[bannerKey] );
 					}else{
 						// If the data is not cached, then create a new profile object object and request the data
-						Profile profile = new Profile();
+						ProfileBO profile = new ProfileBO();
 
 						bannerPath = profile.GetBannerPath(categoryKey);
 

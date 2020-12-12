@@ -20,7 +20,7 @@ namespace PetShop.Web{
 		private const string KEY_TOTAL = "Total";
 
 		//Local page objects
-		private Cart myCart;
+		private CartBO myCart;
 		protected ViewStatePager cart;
 		protected ViewStatePager favorites;
 		protected System.Web.UI.HtmlControls.HtmlForm frmCart;
@@ -143,7 +143,7 @@ namespace PetShop.Web{
 				favorites.DataSource = (IList)Cache[(string)ViewState[KEY_CATEGORY]];
 			}else{
 				//If there is nothing in viewstate, then fetch the favourites from the middle tier
-				Product product = new Product();
+				ProductBO product = new ProductBO();
 				IList productsByCategory = product.GetProductsByCategory((string)ViewState[KEY_CATEGORY]);
 				//Store the results in the cache
 				Cache.Add((string)ViewState[KEY_CATEGORY], productsByCategory, null, DateTime.Now.AddHours(12), Cache.NoSlidingExpiration , CacheItemPriority.High, null);

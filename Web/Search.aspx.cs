@@ -31,7 +31,7 @@ namespace PetShop.Web
 					products.DataSource = (IList)Cache[cacheKey];
 				}else{
 					// If that data is not in the cache then use the business logic tier to fetch the data
-					Product product = new Product();
+					ProductBO product = new ProductBO();
 					IList productsBySearch = product.GetProductsBySearch(searchKey);
 					// Store the results in a cache
 					Cache.Add(cacheKey, productsBySearch, null, DateTime.Now.AddHours(12), Cache.NoSlidingExpiration , CacheItemPriority.High, null);

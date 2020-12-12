@@ -32,7 +32,7 @@ namespace PetShop.Web {
 				products.DataSource = (IList)Cache[categoryKey];
 			}else{
 				// If the data is not cached, then create a new products object and request the data
-				Product product = new Product();
+				ProductBO product = new ProductBO();
 				IList productsByCategory = product.GetProductsByCategory(categoryKey);
 				// Store the results of the call in the Cache and set the time out to 12 hours
 				Cache.Add(categoryKey, productsByCategory, null, DateTime.Now.AddHours(12), Cache.NoSlidingExpiration , CacheItemPriority.High, null);

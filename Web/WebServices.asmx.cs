@@ -11,7 +11,7 @@ namespace PetShop.Web {
 	public OrderInfo GetOrder(int orderId) {
 
 		// Use the order component optimized for reads
-		OrderRead orderWS = new OrderRead();
+		OrderReadBO orderWS = new OrderReadBO();
 
 		return orderWS.GetOrder(orderId);
 		}

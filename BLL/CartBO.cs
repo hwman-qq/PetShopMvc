@@ -11,7 +11,7 @@ namespace PetShop.BLL {
 	/// An object to represent a customer's shopping cart
 	/// </summary>
 	[Serializable]
-	public class Cart : IEnumerable {
+	public class CartBO : IEnumerable {
 
 		/// <summary>
 		/// Internal storage for a cart
@@ -62,7 +62,7 @@ namespace PetShop.BLL {
 				}
 			}
 
-			Item item = new Item();
+			ItemBO item = new ItemBO();
 
 			ItemInfo data = item.GetItem(ItemId);
 			CartItemInfo newItem = new CartItemInfo(ItemId,data.Name, (data.Quantity >= 1), 1, (decimal)data.Price); 
@@ -130,7 +130,7 @@ namespace PetShop.BLL {
 		/// <param name="ItemId">Unique identifier of item to get stock level of</param>
 		/// <returns></returns>
 		private int GetInStock(string ItemId){
-			Inventory inventory = new Inventory();
+			InventoryBO inventory = new InventoryBO();
 
 			return inventory.CurrentQuantityInStock(ItemId);
 		}

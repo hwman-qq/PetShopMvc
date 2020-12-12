@@ -12,8 +12,7 @@
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
     <AssemblyName>PetShop.Model</AssemblyName>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>PetShop.snk</AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
@@ -89,6 +88,9 @@
     <DebugType>none</DebugType>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
@@ -120,9 +122,6 @@
     <Compile Include="AddressInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="BannerData.cs" />
     <Compile Include="CartItemInfo.cs">
       <SubType>Code</SubType>
@@ -136,13 +135,17 @@
     <Compile Include="ItemInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="LineItem.cs" />
     <Compile Include="LineItemInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Order.cs" />
     <Compile Include="OrderInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="OrderStatu.cs" />
     <Compile Include="PetShopDbContext.cs" />
+    <Compile Include="PetShopOrdersDbContext.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductInfo.cs">
       <SubType>Code</SubType>
@@ -171,6 +174,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="PetShop.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

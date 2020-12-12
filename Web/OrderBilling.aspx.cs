@@ -38,7 +38,7 @@ namespace PetShop.Web {
 				AccountInfo myAccount = accountController.GetAccountInfo(true);
 
 				if (myAccount != null){
-					Account account = new Account();
+                    AccountBO account = new AccountBO();
 					billAddr.Address = account.GetAddress(myAccount.UserId);
 				}
 			}

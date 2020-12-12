@@ -33,8 +33,8 @@ namespace PetShop.Web
 			if(Cache[productId] != null){
 				itemsByProduct = (IList)Cache[productId];
 			}else{
-				// If the data is not in the cache then fetch the data from the business logic tier
-				Item item = new Item();
+                // If the data is not in the cache then fetch the data from the business logic tier
+                ItemBO item = new ItemBO();
 				itemsByProduct =  item.GetItemsByProduct(productId);
 				// store the output in the data cache with a 12 hour expiry
 				Cache.Add(productId, itemsByProduct, null, DateTime.Now.AddHours(12), Cache.NoSlidingExpiration , CacheItemPriority.High, null);

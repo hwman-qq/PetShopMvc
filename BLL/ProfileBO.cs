@@ -9,7 +9,7 @@ namespace PetShop.BLL{
 	/// <summary>
 	/// A business compoment to manage user profiles
 	/// </summary>
-	public class Profile{
+	public class ProfileBO{
 
         // Get an instance of the Profile DAL using the DALFactory
         public IProfile dal = DALFactory.getProfileDAL();

@@ -28,8 +28,8 @@ namespace PetShop.Web {
 			// Fetch the key field from the query stirng
 			string itemId = WebComponents.CleanString.InputText(Request["itemId"], 50);
 
-			// Create an instance of the item business components
-			Item item = new Item();
+            // Create an instance of the item business components
+            ItemBO item = new ItemBO();
 
 			// Get the item info from the item component
 			itemInfo = item.GetItem(itemId);

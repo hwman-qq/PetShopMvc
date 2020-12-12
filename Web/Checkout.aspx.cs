@@ -10,7 +10,7 @@ namespace PetShop.Web {
 		protected SimplePager cart;
 		protected HtmlAnchor link;
 		protected NavBar header;
-		protected Cart myCart;
+		protected CartBO myCart;
 
 		override protected void OnLoad(EventArgs e) {
 

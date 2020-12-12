@@ -124,32 +124,32 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs">
+    <Compile Include="AccountBO.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Cart.cs">
+    <Compile Include="CartBO.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DALFactory.cs" />
-    <Compile Include="Inventory.cs">
+    <Compile Include="InventoryBO.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Item.cs">
+    <Compile Include="ItemBO.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="OrderInsert.cs">
+    <Compile Include="OrderInsertBO.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="OrderRead.cs">
+    <Compile Include="OrderReadBO.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Product.cs">
+    <Compile Include="ProductBO.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Profile.cs">
+    <Compile Include="ProfileBO.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

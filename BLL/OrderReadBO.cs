@@ -14,7 +14,7 @@ namespace PetShop.BLL {
 	/// reading the order does not, so the the component has been split into 2 parts
 	/// By splitting the component into 2 we avoid the overhead of Enterprise Services
 	/// </summary>
-	public class OrderRead{
+	public class OrderReadBO{
 
         // Get an instance of the Order DAL using the DALFactory
         public IOrder dal = DALFactory.getOrderDAL();

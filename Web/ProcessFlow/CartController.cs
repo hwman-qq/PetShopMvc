@@ -27,14 +27,14 @@ namespace PetShop.Web.ProcessFlow{
 		/// </summary>
 		/// <param name="create">Specifies whether a cart should be created if one does not exist</param>
 		/// <returns>Cart object</returns>
-		public Cart GetCart(bool create){
+		public CartBO GetCart(bool create){
 		
 			// Fetch the cart object from session state
-			Cart myCart = (Cart)HttpContext.Current.Session[CART_KEY];
+			CartBO myCart = (CartBO)HttpContext.Current.Session[CART_KEY];
 
 			if ( myCart == null ){
 				if (create){
-					myCart = new Cart();
+					myCart = new CartBO();
 				}else{			
 					HttpContext.Current.Server.Transfer(URL_NOCART);
 					return null;
@@ -49,7 +49,7 @@ namespace PetShop.Web.ProcessFlow{
 		/// </summary>
 		/// <param name="create">Specifies whether a cart should be created if one does not exist</param>
 		/// <returns>Cart object</returns>
-		public void StoreCart(Cart cart){
+		public void StoreCart(CartBO cart){
 		
 			// Store the cart object in session state
 			HttpContext.Current.Session[CART_KEY] = cart;
@@ -63,7 +63,7 @@ namespace PetShop.Web.ProcessFlow{
 		public OrderInfo PurchaseCart(){
 
 			// Fetch the cart from session
-			Cart myCart = (Cart)HttpContext.Current.Session[CART_KEY];
+			CartBO myCart = (CartBO)HttpContext.Current.Session[CART_KEY];
 
 			// Make some checks on the cart
 			if ( ( myCart == null ) || ( myCart.Count==0 ) ) {
@@ -87,7 +87,7 @@ namespace PetShop.Web.ProcessFlow{
 				newOrder.Date = DateTime.Now;
 				
 				// Send the order to the middle tier
-				OrderInsert order = new OrderInsert();						  
+				OrderInsertBO order = new OrderInsertBO();						  
 				newOrder.OrderId = order.Insert(newOrder);
 				
 				// clear the session objects used

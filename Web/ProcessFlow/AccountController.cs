@@ -36,8 +36,8 @@ namespace PetShop.Web.ProcessFlow
 		/// <returns>true if the login is successful</returns>
 		public bool ProcessLogin(string userId, string password){
 
-			// Use the account business logic layer to login
-			Account account = new Account();
+            // Use the account business logic layer to login
+            AccountBO account = new AccountBO();
 			AccountInfo myAccountInfo = account.SignIn(userId, password);
 
 			//If login is successful then store the state in session and redirect
@@ -69,8 +69,8 @@ namespace PetShop.Web.ProcessFlow
 		public bool CreateAccount(AccountInfo newAccountInfo){
 
 			try {
-				// Creata a new business logic tier
-				Account account = new Account();
+                // Creata a new business logic tier
+                AccountBO account = new AccountBO();
 
 				// Call the insert method
 				account.Insert(newAccountInfo);
@@ -96,8 +96,8 @@ namespace PetShop.Web.ProcessFlow
 		/// <param name="updatedAccountInfo">Updated account information</param>
 		public void UpdateAccount(AccountInfo updatedAccountInfo){
 
-			// Create the business logic tier
-			Account account = new Account();
+            // Create the business logic tier
+            AccountBO account = new AccountBO();
 			
 			// Call the udpate method
 			account.Update(updatedAccountInfo);

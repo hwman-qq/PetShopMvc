@@ -19,7 +19,7 @@ namespace PetShop.BLL {
 	[ClassInterface(ClassInterfaceType.AutoDispatch)]
 	[ObjectPooling(MinPoolSize=4, MaxPoolSize=4)]
 	[Guid("14E3573D-78C8-4220-9649-BA490DB7B78D")]
-	public class OrderInsert : ServicedComponent {
+	public class OrderInsertBO : ServicedComponent {
 
         // Get an instance of the Order DAL using the DALFactory
         public IOrder dal = DALFactory.getOrderDAL();
@@ -50,7 +50,7 @@ namespace PetShop.BLL {
 			int orderId = dal.Insert(order);
 
 			// Get an instance of the Inventory business component
-			Inventory inventory = new Inventory();
+			InventoryBO inventory = new InventoryBO();
 			
 			inventory.TakeStock( order.LineItems);
 			
