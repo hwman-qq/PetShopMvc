@@ -14,7 +14,7 @@ namespace PetShop.BLL {
 	public class ItemBO {
 
         // Get an instance of the Item DAL using the DALFactory
-        public IItemBO dal = DALFactory.getItemDAL();
+        public IItemDO dal = DALFactory.getItemDAL();
 
         /// <summary>
 		/// A method to list items by productId

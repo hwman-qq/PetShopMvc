@@ -5,7 +5,7 @@ using PetShop.IDAL;
 
 namespace PetShop.SQLServerDAL {
 
-	public class Profile : IProfileBO{
+	public class Profile : IProfileDO{
 
 	private const string SQL_SELECT_BANNERDATA = "Select BannerData from BannerData where FavCategory = @FavCategory";
 

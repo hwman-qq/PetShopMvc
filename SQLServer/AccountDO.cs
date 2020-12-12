@@ -8,7 +8,7 @@ namespace PetShop.SQLServerDAL {
 	/// <summary>
 	/// Summary description for AccountDALC.
 	/// </summary>
-	public class Account : IAccountBO{
+	public class Account : IAccountDO{
 
 		// Static constants
 		private const string SQL_SELECT_ACCOUNT = "SELECT Account.Email, Account.FirstName, Account.LastName, Account.Addr1, Account.Addr2, Account.City, Account.State, Account.Zip, Account.Country, Account.Phone, Profile.LangPref, Profile.FavCategory, Profile.MyListOpt, Profile.BannerOpt FROM Account INNER JOIN Profile ON Account.UserId = Profile.UserId INNER JOIN SignOn ON Account.UserId = SignOn.UserName WHERE SignOn.UserName = @UserId AND SignOn.Password = @Password";

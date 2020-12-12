@@ -7,7 +7,7 @@ namespace PetShop.IDAL{
 	/// <summary>
 	/// Interface for the Inventory DAL
 	/// </summary>
-	public interface IInventoryBO{
+	public interface IInventoryDO{
 
 		/// <summary>
 		/// Get the current stock level of an Item

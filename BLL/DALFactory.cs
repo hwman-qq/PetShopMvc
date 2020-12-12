@@ -16,32 +16,32 @@ namespace PetShop.BLL
     {
         public static string DAL_TYPE = "SQLServerDAL";
 
-        public static IAccountBO getAccountDAL()
+        public static IAccountDO getAccountDAL()
         {
             return new PetShop.SQLServerDAL.Account();
         }
 
-        public static IInventoryBO getInventoryDAL()
+        public static IInventoryDO getInventoryDAL()
         {
             return new PetShop.SQLServerDAL.Inventory();
         }
 
-        public static IItemBO getItemDAL()
+        public static IItemDO getItemDAL()
         {
             return new PetShop.SQLServerDAL.Item();
         }
 
-        public static IOrderBO getOrderDAL()
+        public static IOrderDO getOrderDAL()
         {
             return new PetShop.SQLServerDAL.Order();
         }
 
-        public static IProductBO getProductDAL()
+        public static IProductDO getProductDAL()
         {
             return new PetShop.SQLServerDAL.Product();
         }
 
-        public static IProfileBO getProfileDAL()
+        public static IProfileDO getProfileDAL()
         {
             return new PetShop.SQLServerDAL.Profile();
         }

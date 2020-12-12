@@ -16,7 +16,7 @@ namespace PetShop.BLL {
 	/// </summary>
 	public class AccountBO {
 
-        public IAccountBO dal = DALFactory.getAccountDAL();
+        public IAccountDO dal = DALFactory.getAccountDAL();
 
         /// <summary>
 		/// Method to login into the system. The user must supply a username and password
@@ -78,7 +78,7 @@ namespace PetShop.BLL {
 				return;
 
 			// Get an instance of the account DAL using the DALFactory
-            IAccountBO dal = DALFactory.getAccountDAL();
+            IAccountDO dal = DALFactory.getAccountDAL();
 
 			// Send the udpated account information to the DAL
 			dal.Update(account);

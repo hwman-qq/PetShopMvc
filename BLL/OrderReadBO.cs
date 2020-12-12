@@ -17,7 +17,7 @@ namespace PetShop.BLL {
 	public class OrderReadBO{
 
         // Get an instance of the Order DAL using the DALFactory
-        public IOrderBO dal = DALFactory.getOrderDAL();
+        public IOrderDO dal = DALFactory.getOrderDAL();
 
         /// <summary>
 		/// A method to read an order from the system

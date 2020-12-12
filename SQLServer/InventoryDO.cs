@@ -8,7 +8,7 @@ namespace PetShop.SQLServerDAL {
 	/// <summary>
 	/// Summary description for InventoryDALC.
 	/// </summary>
-	public class Inventory : IInventoryBO{
+	public class Inventory : IInventoryDO{
 
 		// Static constants
 		private const string SQL_SELECT_INVENTORY = "SELECT Qty FROM Inventory WHERE ItemId = @ItemId";
