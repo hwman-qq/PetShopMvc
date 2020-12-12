@@ -6,10 +6,12 @@ using System.Data.SqlClient;
 using PetShop.Model;
 using PetShop.IDAL;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PetShop.SQLServerDAL {
 
 	public class ProductDAO : IProductDO{
+        PetShopDbContext db = new PetShopDbContext();
 
 		//Static constants
 		private const string SQL_SELECT_PRODUCTS = "SELECT ProductId, Name, Descn FROM Product";
@@ -28,20 +30,21 @@ namespace PetShop.SQLServerDAL {
 		/// <returns></returns>
 		public IList<ProductInfo> GetProductsByCategory(string category) {
 
-			IList<ProductInfo> productsByCategory = new List<ProductInfo>();
+            //IList<ProductInfo> productsByCategory = new List<ProductInfo>();
 
-			SqlParameter parm = new SqlParameter(PARM_CATEGORY, SqlDbType.Char, 10);
-			parm.Value = category;
-			
-			//Execute a query to read the products
-			using (SqlDataReader rdr = SQLHelper.ExecuteReader(SQLHelper.CONN_STRING_NON_DTC, CommandType.Text, SQL_SELECT_PRODUCTS_BY_CATEGORY, parm)) {
-				while (rdr.Read()){
-					ProductInfo product = new ProductInfo(rdr.GetString(0), rdr.GetString(1), null);
-					productsByCategory.Add(product);
-				}
-			}
+            //SqlParameter parm = new SqlParameter(PARM_CATEGORY, SqlDbType.Char, 10);
+            //parm.Value = category;
 
-			return productsByCategory;
+            ////Execute a query to read the products
+            //using (SqlDataReader rdr = SQLHelper.ExecuteReader(SQLHelper.CONN_STRING_NON_DTC, CommandType.Text, SQL_SELECT_PRODUCTS_BY_CATEGORY, parm)) {
+            //	while (rdr.Read()){
+            //		ProductInfo product = new ProductInfo(rdr.GetString(0), rdr.GetString(1), null);
+            //		productsByCategory.Add(product);
+            //	}
+            //}
+
+            //return productsByCategory;
+            return db.Products.Where(p => p.Category == category).Select(p => new ProductInfo { Id = p.ProductId, Name = p.Name, Description = p.Descn }).ToList();
 		}
 
 		/// <summary>
@@ -85,7 +88,7 @@ namespace PetShop.SQLServerDAL {
 			//Finally execute the query
 			using (SqlDataReader rdr = SQLHelper.ExecuteReader(SQLHelper.CONN_STRING_NON_DTC, CommandType.Text, sqlProductsBySearch, parms)) {
 				while (rdr.Read()){
-					ProductInfo product = new ProductInfo(rdr.GetString(0), rdr.GetString(1), rdr.GetString(2));
+					ProductInfo product = new ProductInfo { Id = rdr.GetString(0), Name = rdr.GetString(1), Description = rdr.GetString(2) };
 					productsBySearch.Add(product);
 				}
 			}
