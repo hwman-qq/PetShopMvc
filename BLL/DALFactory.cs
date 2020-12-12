@@ -18,32 +18,32 @@ namespace PetShop.BLL
 
         public static IAccountDO getAccountDAL()
         {
-            return new PetShop.SQLServerDAL.Account();
+            return new PetShop.SQLServerDAL.AccountDAO();
         }
 
         public static IInventoryDO getInventoryDAL()
         {
-            return new PetShop.SQLServerDAL.Inventory();
+            return new PetShop.SQLServerDAL.InventoryDAO();
         }
 
         public static IItemDO getItemDAL()
         {
-            return new PetShop.SQLServerDAL.Item();
+            return new PetShop.SQLServerDAL.ItemDAO();
         }
 
         public static IOrderDO getOrderDAL()
         {
-            return new PetShop.SQLServerDAL.Order();
+            return new PetShop.SQLServerDAL.OrderDAO();
         }
 
         public static IProductDO getProductDAL()
         {
-            return new PetShop.SQLServerDAL.Product();
+            return new PetShop.SQLServerDAL.ProductDAO();
         }
 
         public static IProfileDO getProfileDAL()
         {
-            return new PetShop.SQLServerDAL.Profile();
+            return new PetShop.SQLServerDAL.ProfileDAO();
         }
     }
 }
