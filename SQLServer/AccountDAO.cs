@@ -63,7 +63,9 @@ namespace PetShop.SQLServerDAL {
             //	}
             //	return null;
             //}
-            var q = (from a in db.Accounts join p in db.Profiles on a.UserId equals p.UserId join s in db.SignOns on a.UserId equals s.UserName where a.UserId == userId && s.Password == password select new { a.Email, a.FirstName, a.LastName, a.Addr1, a.Addr2, a.City, a.State, a.Zip, a.Country, a.Phone, p.LangPref, p.FavCategory, p.MyListOpt, p.BannerOpt }).First();
+            var q = (from a in db.Accounts join p in db.Profiles on a.UserId equals p.UserId join s in db.SignOns on a.UserId equals s.UserName where a.UserId == userId && s.Password == password select new { a.Email, a.FirstName, a.LastName, a.Addr1, a.Addr2, a.City, a.State, a.Zip, a.Country, a.Phone, p.LangPref, p.FavCategory, p.MyListOpt, p.BannerOpt }).FirstOrDefault();
+            if (q == null)
+                return null;
             AddressInfo myAddress = new AddressInfo(q.FirstName, q.LastName, q.Addr1, q.Addr2, q.City, q.State, q.Zip, q.Country, q.Phone);
             return new AccountInfo(userId, password, q.Email, myAddress, q.LangPref, q.FavCategory, q.MyListOpt==1, q.BannerOpt==1) ;
 		}
@@ -87,7 +89,7 @@ namespace PetShop.SQLServerDAL {
             //}
 
             //return address;
-            return db.Accounts.Where(a => a.UserId == userId).Select(a => new AddressInfo(a.FirstName, a.LastName, a.Addr1, a.Addr2, a.City, a.State, a.Zip, a.Country, a.Phone)).First();
+            return db.Accounts.Where(a => a.UserId == userId).Select(a => new AddressInfo(a.FirstName, a.LastName, a.Addr1, a.Addr2, a.City, a.State, a.Zip, a.Country, a.Phone)).FirstOrDefault();
 		}
 
 		/// <summary>
