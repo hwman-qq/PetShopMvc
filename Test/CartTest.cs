@@ -5,6 +5,10 @@ using System.Collections;
 
 using PetShop.BLL;
 using PetShop.Model;
+using System.Text;
+using System.Data.SqlClient;
+using PetShop.SQLServerDAL;
+using System.Data;
 
 namespace Test
 {
@@ -87,13 +91,23 @@ namespace Test
         [TestMethod()]
         public void ProductBLLTest()
         {
+
             ProductBO productBLL = new ProductBO();
-            IList<ProductInfo> products = productBLL.GetProductsByCategory("BIRDS");
-            foreach (ProductInfo x in products)
+            //IList<ProductInfo> products = productBLL.GetProductsByCategory("BIRDS");
+            //foreach (ProductInfo x in products)
+            //{
+            //    Console.WriteLine("ID: {0}, Name: {1}", x.Id, x.Name);
+            //}
+            //Assert.IsTrue(products.Count > 0);
+
+
+            string text = "DOGS CATS MONKEY";
+            IList<ProductInfo> searchResult = productBLL.GetProductsBySearch(text);
+            Assert.IsTrue(searchResult.Count > 0);
+            foreach(ProductInfo p in searchResult)
             {
-                Console.WriteLine("ID: {0}, Name: {1}", x.Id, x.Name);
+                Console.WriteLine($"ID: {p.Id} Name: {p.Name}");
             }
-            Assert.IsTrue(products.Count > 0);
         }
 
         [TestMethod()]

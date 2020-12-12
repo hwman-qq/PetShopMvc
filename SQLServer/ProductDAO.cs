@@ -84,16 +84,17 @@ namespace PetShop.SQLServerDAL {
 			// Bind the new parameters
 			for (int i = 0; i < numKeywords; i++)
 				parms[i].Value = keywords[i];
-			
-			//Finally execute the query
-			using (SqlDataReader rdr = SQLHelper.ExecuteReader(SQLHelper.CONN_STRING_NON_DTC, CommandType.Text, sqlProductsBySearch, parms)) {
-				while (rdr.Read()){
-					ProductInfo product = new ProductInfo { Id = rdr.GetString(0), Name = rdr.GetString(1), Description = rdr.GetString(2) };
-					productsBySearch.Add(product);
-				}
-			}
 
-			return productsBySearch;
-		}
+            //Finally execute the query
+            //using (SqlDataReader rdr = SQLHelper.ExecuteReader(SQLHelper.CONN_STRING_NON_DTC, CommandType.Text, sqlProductsBySearch, parms)) {
+            //	while (rdr.Read()){
+            //		ProductInfo product = new ProductInfo { Id = rdr.GetString(0), Name = rdr.GetString(1), Description = rdr.GetString(2) };
+            //		productsBySearch.Add(product);
+            //	}
+            //}
+
+            //return productsBySearch;
+            return db.Database.SqlQuery<ProductInfo>(sqlProductsBySearch, parms).ToList();
+        }
 	}
 }
