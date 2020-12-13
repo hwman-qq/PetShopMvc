@@ -285,6 +285,7 @@
     <Content Include="Views\PetShop\SignOut.cshtml" />
     <Content Include="Views\Shared\SignOutNavBar.cshtml" />
     <Content Include="Views\PetShop\Checkout.cshtml" />
+    <Content Include="Views\PetShop\OrderBilling.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

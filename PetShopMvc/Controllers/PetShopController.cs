@@ -141,5 +141,10 @@ namespace PetShopMvc.Controllers
 
             return View(cartController.GetCart(false));
         }
+
+        public ActionResult OrderBilling()
+        {
+            return View();
+        }
     }
 }

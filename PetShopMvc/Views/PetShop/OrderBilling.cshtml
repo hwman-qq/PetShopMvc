@@ -1,0 +1,105 @@
+﻿
+@{
+    Layout = null;
+}
+
+<HTML>
+<HEAD>
+    <title>Order Information</title>
+    <link rel="stylesheet" href="~/Styles.css">
+</HEAD>
+<body>
+    @Html.Partial("NavBar")
+    <blockquote>
+        <form id="frmBill" runat="server" method="post">
+            <asp:Panel ID="enterAddress" Runat="server" Visible="True">
+                <SPAN class="title">Payment Information</SPAN>
+                <P>
+                    <TABLE cellSpacing="0" cellPadding="1">
+                        <TR>
+                            <TD class="label" width="125">Credit Card Type:</TD>
+                            <TD>
+                                <select name="CardType">
+                                    <option value="Visa">Visa</option>
+                                    <option value="MasterCard">MasterCard</option>
+                                    <option value="American Express">American Express</option>
+                                </select>
+                            </TD>
+                        </TR>
+                        <TR>
+                            <TD class="label">Card Number:</TD>
+                            <TD>
+                                @Html.TextBox("CardNumber", "9999 9999 9999 9999")
+                            </TD>
+                        </TR>
+                        <TR>
+                            <TD class="label">Expiration Date:</TD>
+                            <TD>
+                                <TABLE cellSpacing="0" cellPadding="0">
+                                    <TR>
+                                        <TD class="label">Month:</TD>
+                                        <TD>
+                                            <select name="listMonth">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>
+                                        </TD>
+                                        <TD class="label" width="50">Year:</TD>
+                                        <TD>
+                                            <select name="listYear">
+                                                <option value="2002">2002</option>
+                                                <option value="2003">2003</option>
+                                                <option value="2004">2004</option>
+                                                <option value="2005">2005</option>
+                                                <option value="2006">2006</option>
+                                            </select>
+                                        </TD>
+                                    </TR>
+                                </TABLE>
+                            </TD>
+                        </TR>
+                    </TABLE>
+                <P><SPAN class="title">Billing Address</SPAN>
+                <P>
+                    <PetsControl:addressui id="billAddr" runat="server"></PetsControl:addressui>
+                <P>
+                    <TABLE cellSpacing="0" cellPadding="1">
+                        <TR>
+                            <TD>
+                                <asp:checkbox id="chkShipBilling" runat="server" checked="True"></asp:checkbox>
+                            </TD>
+                            <TD>Ship to billing address</TD>
+                        </TR>
+                    </TABLE>
+                <P>
+                    <asp:imagebutton id="btnContinue" onclick="ContinueClicked" runat="server" border="0" alternatetext="Continue" imageurl="Images/buttonContinue.gif"></asp:imagebutton>
+            </asp:Panel>
+            <br>
+            <asp:Panel ID="confirmAddress" Runat="server" Visible="False">
+                <BLOCKQUOTE>
+                    Please confirm that the following information is correct and press the <B>Continue</B>
+                    button to process your order.
+                    <P><SPAN class="title">Billing Address</SPAN>
+                    <P>
+                        <PetsControl:StaticAddress id="staticAddressBilling" runat="server"></PetsControl:StaticAddress>
+                    <P><SPAN class="title">Shipping Address</SPAN>
+                    <P>
+                        <PetsControl:StaticAddress id="staticAddressShipping" runat="server"></PetsControl:StaticAddress>
+                    <P><A href="OrderProcess.aspx"><IMG alt="Continue" src="~/Images/buttonContinue.gif" border="0"></A></P>
+                </BLOCKQUOTE>
+            </asp:Panel>
+        </form>
+        <P></P>
+    </blockquote>
+</body>
+</HTML>
