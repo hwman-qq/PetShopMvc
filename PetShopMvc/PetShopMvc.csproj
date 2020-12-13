@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -148,6 +154,83 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\bannerBirds.gif" />
+    <Content Include="Images\bannerCats.gif" />
+    <Content Include="Images\bannerDogs.gif" />
+    <Content Include="Images\bannerFish.gif" />
+    <Content Include="Images\bannerReptiles.gif" />
+    <Content Include="Images\banner_birds.gif" />
+    <Content Include="Images\banner_cats.gif" />
+    <Content Include="Images\banner_dogs.gif" />
+    <Content Include="Images\banner_fish.gif" />
+    <Content Include="Images\banner_reptiles.gif" />
+    <Content Include="Images\bkg-topbar.gif" />
+    <Content Include="Images\buttonAdd.gif" />
+    <Content Include="Images\buttonCheckout.gif" />
+    <Content Include="Images\buttonContinue.gif" />
+    <Content Include="Images\buttonMore.gif" />
+    <Content Include="Images\buttonPrev.gif" />
+    <Content Include="Images\buttonRegister.gif" />
+    <Content Include="Images\buttonRemove.gif" />
+    <Content Include="Images\buttonSubmit.gif" />
+    <Content Include="Images\buttonUpdate.gif" />
+    <Content Include="Images\button_add_to_cart.gif" />
+    <Content Include="Images\button_continue.gif" />
+    <Content Include="Images\button_next.gif" />
+    <Content Include="Images\button_prev.gif" />
+    <Content Include="Images\button_previous.gif" />
+    <Content Include="Images\button_proceed.gif" />
+    <Content Include="Images\button_register_now.gif" />
+    <Content Include="Images\button_remove.gif" />
+    <Content Include="Images\button_submit.gif" />
+    <Content Include="Images\button_update_cart.gif" />
+    <Content Include="Images\cart.gif" />
+    <Content Include="Images\error.gif" />
+    <Content Include="Images\event_log.gif" />
+    <Content Include="Images\footerStripe.gif" />
+    <Content Include="Images\headerStripe1.gif" />
+    <Content Include="Images\headerStripe2.gif" />
+    <Content Include="Images\headerStripe3.gif" />
+    <Content Include="Images\headerTitle.gif" />
+    <Content Include="Images\iconCart.gif" />
+    <Content Include="Images\lizard1.gif" />
+    <Content Include="Images\lizard2.gif" />
+    <Content Include="Images\lizard3.gif" />
+    <Content Include="Images\lizard4.gif" />
+    <Content Include="Images\lizardA.gif" />
+    <Content Include="Images\lizardB.gif" />
+    <Content Include="Images\lizardC.gif" />
+    <Content Include="Images\liz_1.gif" />
+    <Content Include="Images\liz_2.gif" />
+    <Content Include="Images\liz_3.gif" />
+    <Content Include="Images\liz_4.gif" />
+    <Content Include="Images\liz_5.gif" />
+    <Content Include="Images\liz_6.gif" />
+    <Content Include="Images\main.jpg" />
+    <Content Include="Images\main_feet.gif" />
+    <Content Include="Images\mobile_title.gif" />
+    <Content Include="Images\Pets\bird1.jpg" />
+    <Content Include="Images\Pets\bird2.jpg" />
+    <Content Include="Images\Pets\cat1.jpg" />
+    <Content Include="Images\Pets\cat2.jpg" />
+    <Content Include="Images\Pets\dog1.jpg" />
+    <Content Include="Images\Pets\dog2.jpg" />
+    <Content Include="Images\Pets\dog3.jpg" />
+    <Content Include="Images\Pets\dog4.jpg" />
+    <Content Include="Images\Pets\dog5.jpg" />
+    <Content Include="Images\Pets\dog6.jpg" />
+    <Content Include="Images\Pets\fish1.jpg" />
+    <Content Include="Images\Pets\fish2.jpg" />
+    <Content Include="Images\Pets\fish3.jpg" />
+    <Content Include="Images\Pets\fish4.jpg" />
+    <Content Include="Images\Pets\reptile1.jpg" />
+    <Content Include="Images\Pets\reptile2.jpg" />
+    <Content Include="Images\space.gif" />
+    <Content Include="Images\splash.jpg" />
+    <Content Include="Images\title.gif" />
+    <Content Include="Images\top_stripe1.gif" />
+    <Content Include="Images\top_stripe2.gif" />
+    <Content Include="Images\top_stripe3.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -161,7 +244,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Styles.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -175,6 +261,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Category.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -192,6 +279,28 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{ae805124-3d88-4ae5-a1e7-5a5a595a298e}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDAL\IDAL.csproj">
+      <Project>{e1445288-68f8-4556-a82e-25cfe6b30195}</Project>
+      <Name>IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{1ff5b08d-74a0-452d-a8a2-2534d985f8be}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLServer\SQLServerDAL.csproj">
+      <Project>{9aa6b962-0628-4c0d-a4ea-54a244c32136}</Project>
+      <Name>SQLServerDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{95a981e1-57fe-4e0f-8993-423672c414e9}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

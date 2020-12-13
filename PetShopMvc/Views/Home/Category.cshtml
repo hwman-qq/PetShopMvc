@@ -1,0 +1,37 @@
+﻿@model IEnumerable<PetShop.Model.ProductInfo>
+@{
+    Layout = null;
+}
+
+<HTML>
+<HEAD>
+    <title>Category</title>
+    <LINK href="Styles.css" type="text/css" rel="stylesheet">
+</HEAD>
+<body>
+    <PetsControl:navbar id="header" runat="server"></PetsControl:navbar><br>
+        using(@Html.BeginForm())
+        {
+            <asp:label id="lblPage" enableviewstate="False" runat="server" cssclass="pageHeader">Label</asp:label>
+            <P>
+                <TABLE cellSpacing="0" cellPadding="0">
+                    <TBODY>
+                        <TR class="gridHead">
+                            <TD>Product ID</TD>
+                            <TD>Name</TD>
+                        </TR>
+                        @foreach (var item in Model)
+                        {
+                            <TR class="gridItem">
+                                <TD> @item.Id  </TD>
+                                <TD><A href='@item.Id'>@item.Name</A></TD>
+                            </TR>
+
+                        }
+
+                    </TBODY>
+                </TABLE>
+            </P>
+        }
+</body>
+</HTML>
