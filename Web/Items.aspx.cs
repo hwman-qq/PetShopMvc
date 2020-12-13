@@ -8,6 +8,7 @@ using System.Web.Caching;
 // PetShop specific imports
 using PetShop.BLL;
 using PetShop.Web.Controls;
+using System.Collections.Generic;
 
 namespace PetShop.Web
 {
@@ -27,11 +28,11 @@ namespace PetShop.Web
 			string productId = WebComponents.CleanString.InputText(Request["productId"], 50);
 
 			// Array for the data
-			IList itemsByProduct = null;
+			IList<ItemInfo> itemsByProduct = null;
 
 			// Check if the data exists in the data cache
 			if(Cache[productId] != null){
-				itemsByProduct = (IList)Cache[productId];
+				itemsByProduct = (IList<ItemInfo>)Cache[productId];
 			}else{
                 // If the data is not in the cache then fetch the data from the business logic tier
                 ItemBO item = new ItemBO();

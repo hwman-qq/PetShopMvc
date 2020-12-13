@@ -5,6 +5,7 @@ using System.Collections;
 using PetShop.Model;
 //PetShop DAL interfaces
 using PetShop.IDAL;
+using System.Collections.Generic;
 
 namespace PetShop.BLL {
 
@@ -23,7 +24,7 @@ namespace PetShop.BLL {
 		/// <param name="productId">The productId to search by</param>
 		/// <param name="productName">Name of the product associated with the product</param>
 		/// <returns>An interface to an arraylist</returns>
-		public IList GetItemsByProduct(string productId) {
+		public IList<ItemInfo> GetItemsByProduct(string productId) {
 
 			// Validate input
 			if (productId.Trim() == string.Empty)

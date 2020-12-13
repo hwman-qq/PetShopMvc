@@ -23,6 +23,12 @@ namespace PetShopMvc.Controllers
             return View(productBO.GetProductsByCategory(id));
         }
 
+        public ActionResult Items(string id)
+        {
+            ItemBO bo = new ItemBO();
+            return View(bo.GetItemsByProduct(id));
+        }
+
 
     }
 }

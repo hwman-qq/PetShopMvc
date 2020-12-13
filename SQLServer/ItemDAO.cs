@@ -5,10 +5,13 @@ using System.Diagnostics;
 using System.Data.SqlClient;
 using PetShop.Model;
 using PetShop.IDAL;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PetShop.SQLServerDAL {
 
 	public class ItemDAO : IItemDO{
+        PetShopDbContext db = new PetShopDbContext();
 
 		// Static constants
 		private const string SQL_SELECT_ITEM = "SELECT Item.ItemId, Item.Attr1, Inventory.Qty, Item.ListPrice, Product.Name, Product.Descn FROM Item INNER JOIN Inventory ON Item.ItemId = Inventory.ItemId INNER JOIN Product ON Item.ProductId = Product.ProductId WHERE Item.ItemId = @ItemId";
@@ -22,24 +25,25 @@ namespace PetShop.SQLServerDAL {
 		/// </summary>
 		/// <param name="productId"></param>
 		/// <returns></returns>
-		public IList GetItemsByProduct(string productId) {
+		public IList<ItemInfo> GetItemsByProduct(string productId) {
 
-			IList itemsByProduct = new ArrayList();
+            //IList<ItemInfo> itemsByProduct = new List<ItemInfo>();
 
-			SqlParameter parm = new SqlParameter(PARM_PRODUCT_ID, SqlDbType.Char, 10);
-			parm.Value = productId;
-			
-			//Execute the query against the database
-			using (SqlDataReader rdr = SQLHelper.ExecuteReader(SQLHelper.CONN_STRING_NON_DTC, CommandType.Text, SQL_SELECT_ITEMS_BY_PRODUCT, parm)) {
-				// Scroll through the results
-				while (rdr.Read()){
-					ItemInfo item = new ItemInfo(rdr.GetString(0).Trim(), rdr.GetString(1), rdr.GetDecimal(2), rdr.GetString(3), null);
-					//Add each item to the arraylist
-					itemsByProduct.Add(item);
-				}
-			}
+            //SqlParameter parm = new SqlParameter(PARM_PRODUCT_ID, SqlDbType.Char, 10);
+            //parm.Value = productId;
 
-			return itemsByProduct;
+            ////Execute the query against the database
+            //using (SqlDataReader rdr = SQLHelper.ExecuteReader(SQLHelper.CONN_STRING_NON_DTC, CommandType.Text, SQL_SELECT_ITEMS_BY_PRODUCT, parm)) {
+            //	// Scroll through the results
+            //	while (rdr.Read()){
+            //		ItemInfo item = new ItemInfo(rdr.GetString(0).Trim(), rdr.GetString(1), rdr.GetDecimal(2), rdr.GetString(3), null);
+            //		//Add each item to the arraylist
+            //		itemsByProduct.Add(item);
+            //	}
+            //}
+
+            //return itemsByProduct;
+            return db.Items.Where(item => item.Product.ProductId == productId).Select(item => new ItemInfo { Id = item.ItemId, Name = item.Attr1, Price = item.ListPrice.Value, ProductName = item.Product.Name  }).ToList();
 		}
 
 
@@ -49,22 +53,24 @@ namespace PetShop.SQLServerDAL {
 		/// <param name="itemId">unique key</param>
 		/// <returns></returns>
 		public ItemInfo GetItem(string itemId) {
-			
-			//Set up a return value
-			ItemInfo item = null;
 
-			//Create a parameter
-			SqlParameter parm = new SqlParameter(PARM_ITEM_ID, SqlDbType.Char, 10);
-			//Bind the parameter
-			parm.Value = itemId;
+            ////Set up a return value
+            //ItemInfo item = null;
 
-			//Execute the query
-			using (SqlDataReader rdr = SQLHelper.ExecuteReader(SQLHelper.CONN_STRING_NON_DTC, CommandType.Text, SQL_SELECT_ITEM, parm)) {
-				rdr.Read();
-				item = new ItemInfo(rdr.GetString(0).Trim(), rdr.GetString(1), rdr.GetInt32(2), rdr.GetDecimal(3), rdr.GetString(4), rdr.GetString(5));
-				 
-			}
-			return item;
+            ////Create a parameter
+            //SqlParameter parm = new SqlParameter(PARM_ITEM_ID, SqlDbType.Char, 10);
+            ////Bind the parameter
+            //parm.Value = itemId;
+
+            ////Execute the query
+            //using (SqlDataReader rdr = SQLHelper.ExecuteReader(SQLHelper.CONN_STRING_NON_DTC, CommandType.Text, SQL_SELECT_ITEM, parm)) {
+            //	rdr.Read();
+            //	item = new ItemInfo(rdr.GetString(0).Trim(), rdr.GetString(1), rdr.GetInt32(2), rdr.GetDecimal(3), rdr.GetString(4), rdr.GetString(5));
+
+            //}
+            //return item;
+            var item = db.Items.Find(itemId);
+            return new ItemInfo { Id = item.ItemId, Name = item.Attr1, Price = item.ListPrice.Value, ProductName = item.Product.Name, ProductDesc = item.Product.Descn };
 		}
 	}
 }

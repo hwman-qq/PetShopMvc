@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 //References to PetShop specific libraries
 //PetShop busines entity library
@@ -17,7 +18,7 @@ namespace PetShop.IDAL{
 		/// </summary>
 		/// <param name="productId">ProductId to search for</param>
 		/// <returns>Interface to an arraylist of the results</returns>
-		IList GetItemsByProduct(string productId);
+		IList<ItemInfo> GetItemsByProduct(string productId);
 
 		/// <summary>
 		/// Get information on a specific item
