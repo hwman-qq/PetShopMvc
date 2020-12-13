@@ -22,6 +22,7 @@ namespace PetShop.Model {
 		/// Default constructor
 		/// </summary>
 		public AccountInfo() {
+            this._address = new AddressInfo();
 		}
 
 		/// <summary>

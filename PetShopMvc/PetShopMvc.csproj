@@ -280,6 +280,7 @@
     <Content Include="Views\Shared\ConfirmAddresses.cshtml" />
     <Content Include="Views\Shared\StaticAddress.cshtml" />
     <Content Include="Views\Shared\Cart.cshtml" />
+    <Content Include="Views\PetShop\CreateAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,50 @@
+﻿@model PetShop.Model.AccountInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<HTML>
+<HEAD>
+    <title>Create Account</title>
+    <link rel="stylesheet" href="~/Styles.css">
+</HEAD>
+<body>
+    @Html.Partial("NavBar")
+    <blockquote>
+        <form id="frmCreateAcct" runat="server" method="post">
+            <span class="title">My Account</span><p>
+                <table cellpadding="1" cellspacing="0">
+                    <tr>
+                        <td class="label" width="125">User ID:</td>
+                        <td colspan="3">
+                            @Html.TextBoxFor(model => model.UserId)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Password:</td>
+                        <td colspan="3">
+                            @Html.PasswordFor(model => model.Password)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">E-mail Address:</td>
+                        <td colspan="3">
+                            @Html.TextBoxFor(model => model.Email)
+                        </td>
+                    </tr>
+                </table>
+            <p><span class="title">My Address</span>
+            <p>
+                @Html.Partial("Address", Model.Address)
+            <p><span class="title">My Preferences</span>
+            <p>
+                <Controls:preferences id="prefs" runat="server" />
+            <p>
+                <input type="submit" imageurl="~/Images/buttonSubmit.gif" value="Submit" />
+        </form>
+    </blockquote>
+</body>
+</HTML>

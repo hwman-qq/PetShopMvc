@@ -49,6 +49,12 @@ namespace PetShopMvc.Controllers
             return View(new AccountInfo());
         }
 
+        public ActionResult CreateAccount()
+        {
+            AccountInfo account = new AccountInfo();
+            return View(account);
+        }
+
         public ActionResult ShoppingCart(string Id)
         {
             CartController cartController = new CartController();
