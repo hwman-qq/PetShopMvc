@@ -36,6 +36,23 @@ namespace PetShopMvc.Controllers
             return View(productBO.GetProductsByCategory(id));
         }
 
+        public ActionResult Search(string keywords)
+        {
+            string searchKey = CleanString.InputText(keywords, 100);
+
+            if (searchKey != "")
+            {
+
+                // Create a data cache key
+                    // If that data is not in the cache then use the business logic tier to fetch the data
+                    ProductBO product = new ProductBO();
+                    IList<ProductInfo> productsBySearch = product.GetProductsBySearch(searchKey);
+                // Store the results in a cache
+                return View(productsBySearch);
+            }
+            return View();
+        }
+
         public ActionResult Items(string id)
         {
             CartItem bo = new CartItem();
@@ -76,6 +93,11 @@ namespace PetShopMvc.Controllers
 
         public ActionResult SignOut()
         {
+            AccountController accountController = new AccountController();
+
+            // Tell the controller that the user is logging out
+            accountController.LogOut();
+
             return View();
         }
 
@@ -129,6 +151,17 @@ namespace PetShopMvc.Controllers
             return View(myCart);
         }
 
+        public ActionResult RemoveItem(string itemId)
+        {
+            if (!string.IsNullOrEmpty(itemId))
+            {
+                CartController cartController = new CartController();
+                Cart myCart = cartController.GetCart(true);
+                myCart.Remove(itemId);
+            }
+            return Redirect("ShoppingCart");
+        }
+
         [HttpPost]
         public ActionResult ShoppingCart()
         {
@@ -143,6 +176,20 @@ namespace PetShopMvc.Controllers
         }
 
         public ActionResult OrderBilling()
+        {
+            AccountController accountController = new AccountController();
+
+            AccountInfo myAccount = accountController.GetAccountInfo(true);
+
+            if (myAccount != null)
+            {
+                AccountBO account = new AccountBO();
+                //billAddr.Address = account.GetAddress(myAccount.UserId);
+            }
+            return View();
+        }
+
+        public ActionResult OrderProcess()
         {
             return View();
         }

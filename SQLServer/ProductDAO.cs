@@ -10,6 +10,12 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace PetShop.SQLServerDAL {
+    class ProductResult
+    {
+        public string ProductId { get; set; }
+        public string Name { get; set; }
+        public string Descn { get; set; }
+    }
 
 	public class ProductDAO : IProductDO{
         PetShopDbContext db = new PetShopDbContext();
@@ -95,7 +101,8 @@ namespace PetShop.SQLServerDAL {
             //}
 
             //return productsBySearch;
-            return db.Database.SqlQuery<ProductInfo>(sqlProductsBySearch, parms).ToList();
+            return db.Database.SqlQuery<ProductResult>(sqlProductsBySearch, parms)
+                .Select(x => new ProductInfo { Id = x.ProductId, Name = x.Name, Description = x.Descn }).ToList();
         }
 	}
 }

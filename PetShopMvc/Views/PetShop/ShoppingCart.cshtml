@@ -34,7 +34,7 @@
                                                     @foreach (CartItemInfo item in Model.GetCartItems())
                                                     {
                                                         <tr class="gridItem">
-                                                            <td><input type="submit" value="Remove" imageurl="~/Images/buttonRemove.gif" /></td>
+                                                            <td><a href="~/PetShop/RemoveItem?itemId=@item.ItemId"><img src="~/Images/buttonRemove.gif" /></a></td>
                                                             <td>@item.ItemId</td>
                                                             <td><a href='~/PetShop/ItemDetails?itemId=@item.ItemId'>@item.Name</a></td>
                                                             <td>@item.InStock </td>

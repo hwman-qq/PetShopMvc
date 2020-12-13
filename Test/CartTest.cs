@@ -112,7 +112,7 @@ namespace Test
             Assert.IsTrue(searchResult.Count > 0);
             foreach(ProductInfo p in searchResult)
             {
-                Console.WriteLine($"ID: {p.Id} Name: {p.Name}");
+                Console.WriteLine($"ID: {p.Id} Name: {p.Name} Description: {p.Description}");
             }
         }
 

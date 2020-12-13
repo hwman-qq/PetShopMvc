@@ -1,0 +1,91 @@
+﻿@model PetShop.Model.OrderInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<HTML>
+<HEAD>
+    <title>Order Processed</title>
+    <META http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <LINK href="~/Styles.css" rel="stylesheet">
+</HEAD>
+<body>
+    @Html.Partial("NavBar")
+    <blockquote>
+        <span class="title">
+            Order
+            Complete!
+        </span>
+        <p>
+            <table cellSpacing="0" cellPadding="4">
+                <TBODY>
+                    <tr>
+                        <td class="label">Date:</td>
+                        <td>@Model.Date</td>
+                    </tr>
+                    <tr>
+                        <td class="label">User ID:</td>
+                        <td>@Model.UserId</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Order ID:</td>
+                        <td>@Model.OrderId</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Status:</td>
+                        <td>P</td>
+                    </tr>
+                    <tr vAlign="top">
+                        <td class="label">Payment Information:</td>
+                        <td>
+                            @Model.CreditCard.CardType<br>
+                            @Model.CreditCard.CardNumber<br>
+                            @Model.CreditCard.CardExpiration
+                        </td>
+                    </tr>
+                    <tr vAlign="top">
+                        <td class="label">Billing Address:</td>
+                        <td>@Html.Partial("StaticAddress", Model.BillingAddress)</td>
+                    </tr>
+                    <tr vAlign="top">
+                        <td class="label">Shipping Address:</td>
+                        <td>@Html.Partial("StaticAddress", Model.ShippingAddress)</td>
+                    </tr>
+                    <tr vAlign="top">
+                        <td class="label">Items:</td>
+                        <td>
+                            <table cellpadding="0" cellspacing="0">
+                                <tr class="gridHead">
+                                    <td>Item ID</td>
+                                    <td>Product</td>
+                                    <td>Price</td>
+                                    <td>Quantity</td>
+                                    <td>Subtotal</td>
+                                </tr>
+                                @foreach (var item in Model.LineItems)
+                                {
+                                    <tr class="gridItem">
+                                        <td>@item.ItemId</td>
+                                        <td><a href='ItemDetails?itemId=@item.ItemId'>@item.Name</a></td>
+                                        <td class="num">@item.Price</td>
+                                        <td class="num">@item.Quantity</td>
+                                        <td class="num">@item.SubTotal</td>
+                                    </tr>
+                                }
+                            </table>
+            </TD></TR>
+            <tr>
+                <td label class="label">Total:</td>
+                <td class="numFooter" colspan="5">
+                    <span class="label">
+                        @Model.OrderTotal
+                    </span>
+                </td>
+            </tr>
+            </TBODY></TABLE>
+        </p>
+    </blockquote>
+</body>
+</HTML>

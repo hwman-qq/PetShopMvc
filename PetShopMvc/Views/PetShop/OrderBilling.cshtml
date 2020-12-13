@@ -1,4 +1,4 @@
-﻿
+﻿@model PetShop.Model.OrderInfo
 @{
     Layout = null;
 }
@@ -91,11 +91,11 @@
                     button to process your order.
                     <P><SPAN class="title">Billing Address</SPAN>
                     <P>
-                        <PetsControl:StaticAddress id="staticAddressBilling" runat="server"></PetsControl:StaticAddress>
+                        @Html.Partial("StaticAddress", Model.BillingAddress)
                     <P><SPAN class="title">Shipping Address</SPAN>
                     <P>
-                        <PetsControl:StaticAddress id="staticAddressShipping" runat="server"></PetsControl:StaticAddress>
-                    <P><A href="OrderProcess.aspx"><IMG alt="Continue" src="~/Images/buttonContinue.gif" border="0"></A></P>
+                        @Html.Partial("StaticAddress", Model.ShippingAddress)
+<P><A href="OrderProcess"><IMG alt="Continue" src="~/Images/buttonContinue.gif" border="0"></A></P>
                 </BLOCKQUOTE>
             </asp:Panel>
         </form>
