@@ -14,12 +14,6 @@ namespace PetShopMvc.Controllers
             return View();
         }
 
-        public ActionResult Category(string id)
-        {
-            ProductBO productBO = new ProductBO();
-            return View(productBO.GetProductsByCategory(id));
-        }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

@@ -144,6 +144,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ProcessFlow\AccountController.cs" />
+    <Compile Include="ProcessFlow\CartController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -262,7 +264,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Category.cshtml" />
     <Content Include="Views\PetShop\Category.cshtml" />
     <Content Include="Views\PetShop\Index.cshtml" />
     <Content Include="Views\Shared\NavBarNoMenu.cshtml" />
@@ -271,6 +272,9 @@
     <Content Include="Views\PetShop\Help.cshtml" />
     <Content Include="Views\PetShop\ItemDetails.cshtml" />
     <Content Include="Views\PetShop\SignIn.cshtml" />
+    <Content Include="Views\Shared\Address.cshtml" />
+    <Content Include="Views\Shared\Banner.cshtml" />
+    <Content Include="Views\Shared\Preferences.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
