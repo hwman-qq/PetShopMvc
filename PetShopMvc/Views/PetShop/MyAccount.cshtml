@@ -1,0 +1,21 @@
+﻿
+@{
+    Layout = null;
+}
+
+<HTML>
+<HEAD>
+    <title>
+        MyAccount
+    </title>
+    <link rel="stylesheet" href="~/Styles.css">
+</HEAD>
+<body>
+    @Html.Partial("NavBar")
+    <blockquote>
+        <span class="title">My Account</span><p>
+            @ViewBag.Message
+        </p>
+    </blockquote>
+</body>
+</HTML>

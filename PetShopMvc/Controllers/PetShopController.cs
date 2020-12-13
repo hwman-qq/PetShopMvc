@@ -13,6 +13,16 @@ namespace PetShopMvc.Controllers
 {
     public class PetShopController : Controller
     {
+        private const string ACTION_CREATE = "create";
+        private const string ACTION_UPDATE = "update";
+        private const string ACTION_SIGN_IN = "signIn";
+        private const string TITLE_CREATE = "Create Account";
+        private const string TITLE_UPDATE = "Edit Account";
+        private const string TITLE_SIGN_IN = "Sign In";
+        private const string MSG_CREATE = "Your account was successfully created.";
+        private const string MSG_UPDATE = "Your account was successfully updated.";
+        private const string MSG_SIGN_IN = "Welcome to the .NET Pet Shop Demo.";
+
         // GET: PetShop
         public ActionResult Index()
         {
@@ -49,10 +59,49 @@ namespace PetShopMvc.Controllers
             return View(new AccountInfo());
         }
 
+        [HttpPost]
+        public ActionResult SignIn(string UserId, string Password)
+        {
+            AccountController accountController = new AccountController();
+
+            if (!accountController.ProcessLogin(UserId, Password))
+            {
+
+                // If we fail to login let the user know
+                return new HttpNotFoundResult();
+            }
+
+            return Redirect("/PetShop/Index");
+        }
+
+        public ActionResult SignOut()
+        {
+            return View();
+        }
+
         public ActionResult CreateAccount()
         {
             AccountInfo account = new AccountInfo();
             return View(account);
+        }
+
+        public ActionResult MyAccount(string Action)
+        {
+            switch (Action)
+            {
+                case ACTION_CREATE:
+                    ViewBag.Message = MSG_CREATE;
+                    break;
+
+                case ACTION_UPDATE:
+                    ViewBag.Message = MSG_UPDATE;
+                    break;
+
+                case ACTION_SIGN_IN:
+                    ViewBag.Message = MSG_SIGN_IN;
+                    break;
+            }
+            return View();
         }
 
         public ActionResult ShoppingCart(string Id)

@@ -15,11 +15,11 @@ namespace PetShop.Web.ProcessFlow
 		// Navigation constants
 
 		private const string ACCOUNT_KEY = "ACCOUNT_KEY";
-		private const string URL_DEFAULT = "default.aspx";
-		private const string URL_SIGNIN  = "SignIn.aspx";
-		private const string URL_ACCOUNTCREATE = "MyAccount.aspx?action=create";
-		private const string URL_ACCOUNTSIGNIN = "MyAccount.aspx?action=signIn";
-		private const string URL_ACCOUNTUPDATE = "MyAccount.aspx?action=update";
+		private const string URL_DEFAULT = "Index";
+		private const string URL_SIGNIN  = "SignIn";
+		private const string URL_ACCOUNTCREATE = "MyAccount?action=create";
+		private const string URL_ACCOUNTSIGNIN = "MyAccount?action=signIn";
+		private const string URL_ACCOUNTUPDATE = "MyAccount?action=update";
 		
 		/// <summary>
 		/// Default constructor

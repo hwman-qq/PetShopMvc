@@ -22,7 +22,7 @@
                 </TD>
                 <TD><%# DataBinder.Eval(Container.DataItem, "ItemId") %></TD>
                 <TD>
-                    <asp:hyperlink id=DetailLink runat="server" navigateurl='<%# "../ItemDetails.aspx?itemId=" + DataBinder.Eval(Container.DataItem, "ItemID")%>' cssclass="text">
+                    <asp:hyperlink id=DetailLink runat="server" navigateurl='<%# "../ItemDetails?itemId=" + DataBinder.Eval(Container.DataItem, "ItemID")%>' cssclass="text">
                         <%# DataBinder.Eval(Container.DataItem, "Name") %>
                     </asp:hyperlink>
                 </TD>

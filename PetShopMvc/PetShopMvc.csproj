@@ -281,6 +281,9 @@
     <Content Include="Views\Shared\StaticAddress.cshtml" />
     <Content Include="Views\Shared\Cart.cshtml" />
     <Content Include="Views\PetShop\CreateAccount.cshtml" />
+    <Content Include="Views\PetShop\MyAccount.cshtml" />
+    <Content Include="Views\PetShop\SignOut.cshtml" />
+    <Content Include="Views\Shared\SignOutNavBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

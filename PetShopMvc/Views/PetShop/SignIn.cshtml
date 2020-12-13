@@ -20,13 +20,13 @@
                     <tr>
                         <td class="label">User ID:</td>
                         <td>
-                            @Html.TextBox("txtPassword", Model.UserId)
+                            @Html.TextBoxFor(model => model.UserId)
                         </td>
                     </tr>
                     <tr>
                         <td class="label">Password:</td>
                         <td>
-                            @Html.TextBox("txtPassword", Model.Password)
+                            @Html.PasswordFor(model => model.Password)
                         </td>
                     </tr>
                 </table>

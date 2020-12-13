@@ -18,7 +18,7 @@ namespace PetShop.Web.ProcessFlow{
 		private const string ACCOUNT_KEY = "ACCOUNT_KEY";
 		private const string CART_KEY = "CART_KEY";
 		private const string CREDITCARD_KEY = "CREDITCARD_KEY";
-		private const string URL_NOCART = "ShoppingCart.aspx";
+		private const string URL_NOCART = "ShoppingCart";
 
 		public CartController(){}
 
@@ -156,7 +156,7 @@ namespace PetShop.Web.ProcessFlow{
 				HttpContext.Current.Session[SHIPPING_KEY] = HttpContext.Current.Session[BILLING_KEY];
 			} else {
 				//If the user wants to use a different address then take them to the next page
-				HttpContext.Current.Response.Redirect("OrderShipping.aspx", true);
+				HttpContext.Current.Response.Redirect("OrderShipping", true);
 			}				
 		}
 
