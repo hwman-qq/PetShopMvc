@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-
+using System.Collections.Generic;
 //References to PetShop specific libraries
 //PetShop busines entity library
 using PetShop.Model;
@@ -11,12 +11,12 @@ namespace PetShop.BLL {
 	/// An object to represent a customer's shopping cart
 	/// </summary>
 	[Serializable]
-	public class CartBO : IEnumerable {
+	public class Cart : IEnumerable {
 
 		/// <summary>
 		/// Internal storage for a cart
 		/// </summary>
-		private ArrayList _items = new ArrayList();
+		private List<CartItemInfo> _items = new List<CartItemInfo>();
 
 		private decimal _total=0;
 
@@ -62,7 +62,7 @@ namespace PetShop.BLL {
 				}
 			}
 
-			ItemBO item = new ItemBO();
+			CartItem item = new CartItem();
 
 			ItemInfo data = item.GetItem(ItemId);
 			CartItemInfo newItem = new CartItemInfo(ItemId,data.Name, (data.Quantity >= 1), 1, (decimal)data.Price); 
@@ -99,7 +99,7 @@ namespace PetShop.BLL {
 		/// Returs internal array list of cart items
 		/// </summary>
 		/// <returns></returns>
-		public ArrayList GetCartItems() {
+		public List<CartItemInfo> GetCartItems() {
 			return _items;
 		}
 
@@ -107,9 +107,9 @@ namespace PetShop.BLL {
 		/// Method to convert internal array of cart items to order line items
 		/// </summary>
 		/// <returns>New array list of order line items</returns>
-		public ArrayList GetOrderLineItems() {
+		public List<LineItemInfo> GetOrderLineItems() {
 
-			ArrayList orderLineItems = new ArrayList();
+            List<LineItemInfo> orderLineItems = new List<LineItemInfo>();
 
 			int lineNum = 1;
 

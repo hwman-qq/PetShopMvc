@@ -21,7 +21,7 @@ namespace PetShop.Web{
 		private const string KEY_TOTAL = "Total";
 
 		//Local page objects
-		private CartBO myCart;
+		private BLL.Cart myCart;
 		protected ViewStatePager cart;
 		protected ViewStatePager favorites;
 		protected System.Web.UI.HtmlControls.HtmlForm frmCart;

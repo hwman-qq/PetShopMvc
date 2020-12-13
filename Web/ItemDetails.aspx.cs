@@ -29,7 +29,7 @@ namespace PetShop.Web {
 			string itemId = WebComponents.CleanString.InputText(Request["itemId"], 50);
 
             // Create an instance of the item business components
-            ItemBO item = new ItemBO();
+            CartItem item = new CartItem();
 
 			// Get the item info from the item component
 			itemInfo = item.GetItem(itemId);

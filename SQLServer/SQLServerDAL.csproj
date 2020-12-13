@@ -145,6 +145,7 @@
     <Compile Include="ItemDAO.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="LineItem.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\BannerData.cs" />
     <Compile Include="Models\Category.cs" />
@@ -155,9 +156,12 @@
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\SignOn.cs" />
     <Compile Include="Models\Supplier.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="OrderDAO.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="OrderStatu.cs" />
+    <Compile Include="PetShopOrdersDbContext.cs" />
     <Compile Include="ProductDAO.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -186,6 +190,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -147,6 +147,7 @@
     <Compile Include="ProcessFlow\AccountController.cs" />
     <Compile Include="ProcessFlow\CartController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebComponents\CleanString.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -275,6 +276,10 @@
     <Content Include="Views\Shared\Address.cshtml" />
     <Content Include="Views\Shared\Banner.cshtml" />
     <Content Include="Views\Shared\Preferences.cshtml" />
+    <Content Include="Views\PetShop\ShoppingCart.cshtml" />
+    <Content Include="Views\Shared\ConfirmAddresses.cshtml" />
+    <Content Include="Views\Shared\StaticAddress.cshtml" />
+    <Content Include="Views\Shared\Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -132,14 +132,14 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CartBO.cs">
+    <Compile Include="Cart.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DALFactory.cs" />
     <Compile Include="InventoryBO.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ItemBO.cs">
+    <Compile Include="CartItem.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="OrderInsertBO.cs">

@@ -1,0 +1,34 @@
+﻿@model PetShop.Model.AddressInfo
+<table cellpadding="2" cellspacing="0" border="0">
+    <tr>
+        <td>
+            <font class="text">
+                @Html.LabelFor(model => model.FirstName)
+                @Html.LabelFor(model => model.LastName)
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <font class="text">
+                @Html.LabelFor(model => model.Address1)
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <font class="text">
+                @Html.LabelFor(model => model.Address2)
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <font class="text">
+                @Html.LabelFor(model => model.City),
+                @Html.LabelFor(model => model.State)
+                @Html.LabelFor(model => model.Zip)
+            </font>
+        </td>
+    </tr>
+</table>

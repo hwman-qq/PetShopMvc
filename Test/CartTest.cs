@@ -79,13 +79,18 @@ namespace Test
         [TestMethod()]
         public void TotalTest()
         {
-            CartBO target = new CartBO(); // TODO: 初始化为适当的值
+            Cart target = new Cart(); // TODO: 初始化为适当的值
             Decimal expected = new Decimal(); // TODO: 初始化为适当的值
             Decimal actual;
-            target.Total = expected;
-            actual = target.Total;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("验证此测试方法的正确性。");
+            target.Add("EST-28");
+
+            //target.Total = expected;
+            //actual = target.Total;
+            Assert.AreEqual(155.29m, target.Total);
+
+            target.Add("EST-12");
+            Assert.AreEqual(155.29m+18.50m, target.Total);
+            //Assert.Inconclusive("验证此测试方法的正确性。");
         }
 
         //自己手工编写的测试，更灵活，可以综合测试类的多个方法

@@ -27,14 +27,14 @@ namespace PetShop.Web.ProcessFlow{
 		/// </summary>
 		/// <param name="create">Specifies whether a cart should be created if one does not exist</param>
 		/// <returns>Cart object</returns>
-		public CartBO GetCart(bool create){
-		
-			// Fetch the cart object from session state
-			CartBO myCart = (CartBO)HttpContext.Current.Session[CART_KEY];
+		public Cart GetCart(bool create){
+
+            // Fetch the cart object from session state
+            BLL.Cart myCart = (BLL.Cart)HttpContext.Current.Session[CART_KEY];
 
 			if ( myCart == null ){
 				if (create){
-					myCart = new CartBO();
+					myCart = new BLL.Cart();
 				}else{			
 					HttpContext.Current.Server.Transfer(URL_NOCART);
 					return null;
@@ -49,7 +49,7 @@ namespace PetShop.Web.ProcessFlow{
 		/// </summary>
 		/// <param name="create">Specifies whether a cart should be created if one does not exist</param>
 		/// <returns>Cart object</returns>
-		public void StoreCart(CartBO cart){
+		public void StoreCart(BLL.Cart cart){
 		
 			// Store the cart object in session state
 			HttpContext.Current.Session[CART_KEY] = cart;
@@ -62,8 +62,8 @@ namespace PetShop.Web.ProcessFlow{
 		/// <returns>Order object with information about the new Order</returns>
 		public OrderInfo PurchaseCart(){
 
-			// Fetch the cart from session
-			CartBO myCart = (CartBO)HttpContext.Current.Session[CART_KEY];
+            // Fetch the cart from session
+            BLL.Cart myCart = (BLL.Cart)HttpContext.Current.Session[CART_KEY];
 
 			// Make some checks on the cart
 			if ( ( myCart == null ) || ( myCart.Count==0 ) ) {
@@ -81,7 +81,7 @@ namespace PetShop.Web.ProcessFlow{
 				newOrder.BillingAddress = (AddressInfo)HttpContext.Current.Session[BILLING_KEY];
 				newOrder.ShippingAddress = (AddressInfo)HttpContext.Current.Session[SHIPPING_KEY];
 				
-				newOrder.LineItems = (LineItemInfo[])myCart.GetOrderLineItems().ToArray(typeof(LineItemInfo));
+				newOrder.LineItems = (LineItemInfo[])myCart.GetOrderLineItems().ToArray();
 								
 				newOrder.OrderTotal = myCart.Total;			
 				newOrder.Date = DateTime.Now;
