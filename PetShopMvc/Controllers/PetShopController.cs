@@ -128,5 +128,18 @@ namespace PetShopMvc.Controllers
 
             return View(myCart);
         }
+
+        [HttpPost]
+        public ActionResult ShoppingCart()
+        {
+            return View();
+        }
+
+        public ActionResult Checkout()
+        {
+            CartController cartController = new CartController();
+
+            return View(cartController.GetCart(false));
+        }
     }
 }
