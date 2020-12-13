@@ -1,4 +1,4 @@
-namespace PetShop.Model
+namespace UnitTestProject1
 {
     using System;
     using System.Collections.Generic;

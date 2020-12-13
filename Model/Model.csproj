@@ -117,44 +117,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs" />
     <Compile Include="AccountInfo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="AddressInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BannerData.cs" />
     <Compile Include="CartItemInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Category.cs" />
     <Compile Include="CreditCardInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Inventory.cs" />
-    <Compile Include="Item.cs" />
     <Compile Include="ItemInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="LineItem.cs" />
     <Compile Include="LineItemInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Order.cs" />
     <Compile Include="OrderInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="OrderStatu.cs" />
-    <Compile Include="PetShopDbContext.cs" />
-    <Compile Include="PetShopOrdersDbContext.cs" />
-    <Compile Include="Product.cs" />
     <Compile Include="ProductInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Profile.cs" />
-    <Compile Include="SignOn.cs" />
-    <Compile Include="Supplier.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

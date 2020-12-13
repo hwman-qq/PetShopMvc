@@ -29,6 +29,13 @@ namespace PetShopMvc.Controllers
             return View(bo.GetItemsByProduct(id));
         }
 
+        public ActionResult ItemDetails(string id)
+        {
+            ItemBO bo = new ItemBO();
+            return View(bo.GetItem(id));
+
+        }
+
         public ActionResult Help()
         {
             return View();

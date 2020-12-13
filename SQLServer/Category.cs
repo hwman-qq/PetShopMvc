@@ -1,4 +1,4 @@
-namespace PetShop.Model
+namespace PetShop.Data.SqlServer
 {
     using System;
     using System.Collections.Generic;
@@ -6,20 +6,18 @@ namespace PetShop.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Product")]
-    public partial class Product
+    [Table("Category")]
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public Category()
         {
+            Products = new HashSet<Product>();
         }
 
+        [Key]
         [StringLength(10)]
-        public string ProductId { get; set; }
-
-        [Required]
-        [StringLength(10)]
-        public string Category { get; set; }
+        public string CatId { get; set; }
 
         [StringLength(80)]
         public string Name { get; set; }
@@ -27,7 +25,7 @@ namespace PetShop.Model
         [StringLength(255)]
         public string Descn { get; set; }
 
-        public virtual Category ProductCategory { get; set; }
-
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

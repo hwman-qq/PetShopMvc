@@ -2,6 +2,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using PetShop.Model;
+using PetShop.Data.SqlServer.Models;
 using PetShop.IDAL;
 using System.Collections.Generic;
 using System.Linq;

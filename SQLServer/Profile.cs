@@ -1,4 +1,4 @@
-namespace PetShop.Model
+namespace PetShop.Data.SqlServer
 {
     using System;
     using System.Collections.Generic;
