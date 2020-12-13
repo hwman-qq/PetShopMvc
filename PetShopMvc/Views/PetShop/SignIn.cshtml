@@ -1,0 +1,40 @@
+﻿@model PetShop.Model.AccountInfo
+@{ 
+    Layout = null;
+}
+<HTML>
+<HEAD>
+    <title>Sign In</title>
+    <link rel="stylesheet" href="~/Styles.css">
+</HEAD>
+<body>
+    @Html.Partial("NavBar")
+    <blockquote>
+        <form action="~/PetShop/SignIn" method="post">
+            <span class="title">Are you a new user?</span><p>
+                <a href="~/PetShop/CreateAccount"><img src="~/Images/buttonRegister.gif" alt="Register Now" border="0"></a>
+            <p>
+                <span class="title">Or a registered user?</span>
+            <p>
+                <table cellpadding="1" cellspacing="0">
+                    <tr>
+                        <td class="label">User ID:</td>
+                        <td>
+                            @Html.TextBox("txtPassword", Model.UserId)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Password:</td>
+                        <td>
+                            @Html.TextBox("txtPassword", Model.Password)
+                        </td>
+                    </tr>
+                </table>
+            <p>
+                <input type="submit" value="Submit" imageurl="~/Images/buttonSubmit.gif" alternatetext="Submit" />
+        </form>
+        </P>
+    </blockquote>
+</body>
+</HTML>
+

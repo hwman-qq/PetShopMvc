@@ -41,6 +41,9 @@ namespace PetShopMvc.Controllers
             return View();
         }
 
-
+        public ActionResult SignIn()
+        {
+            return View(new AccountInfo());
+        }
     }
 }
